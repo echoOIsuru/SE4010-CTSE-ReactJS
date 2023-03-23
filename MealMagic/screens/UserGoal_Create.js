@@ -53,7 +53,7 @@ export default function Create() {
                     style={styles.input}
                     onChangeText={setAge}
                     value={age}
-                    placeholder="Age"
+                    placeholder="Meal"
                     keyboardType='default'
                   ></TextInput>
 

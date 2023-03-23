@@ -55,7 +55,7 @@ const update=()=>{
                     style={styles.input}
                     onChangeText={setAge}
                     value={age}
-                    placeholder="AGE"
+                    placeholder="Meal"
                     keyboardType='default'
                   ></TextInput>
 
