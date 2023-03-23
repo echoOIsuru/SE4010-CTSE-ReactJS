@@ -13,10 +13,21 @@ export default function HomeScreen({ route, navigation }) {
     }, [])
 
 
-    const go = () => {
+  
 
+
+
+
+    const go = () => {
         addMealPlan()
-        // navigation.navigate('Test')
+      // navigation.navigate('Test')
+       
+    }
+
+
+    const go2 = () => {
+
+        navigation.navigate('Creat Goal')
     }
 
     return (
@@ -26,6 +37,13 @@ export default function HomeScreen({ route, navigation }) {
                 title="Go to Test"
                 onPress={() => { go() }}
             />
+
+<Button
+                title="Creat Goal"
+                onPress={() => { go2() }}
+            />
+
+
         </View>
     )
 }
