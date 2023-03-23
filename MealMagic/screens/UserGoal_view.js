@@ -49,21 +49,21 @@ const deleteTodo=(todos)=>{
 }
 
     return (
-    //  <ScrollView>
+    // <ScrollView>
         
  
 
-        <View style={{backgroundColor:'white',}}>
+        <View style={{backgroundColor:'#90EE90',}}>
 
             <View>
             <Text style={{ fontSize:30,fontWeight: '400',textAlign:'center',padding:25,color:'#000000'}}>Goal List</Text>
             </View>
 
-            <View style={{flexDirection:"row",paddingBottom:15,backgroundColor:'white',paddingBottom:20}}>
-            <Image style={{width: 375, height:175, }}source={require('../assets/UerGoalCreate.png')}  />
+            <View style={{flexDirection:"row",paddingBottom:15,backgroundColor:'#90EE90',paddingBottom:20}}>
+            <Image style={{width: 425, height:175, }}source={require('../assets/UerGoalCreate.png')}  />
             </View>
             
-            <View style={{flexDirection:"row",paddingBottom:20,justifyContent:'center',alignItems:'center',backgroundColor:'#ECECEC'}}>
+            <View style={{flexDirection:"row",paddingBottom:10,justifyContent:'center',alignItems:'center',backgroundColor:'#ECECEC',}}>
             {/* <Text style={{ fontSize:20, fontWeight: '500',width:50,marginLeft:35}}>Meal</Text>    */}
             <Text style={{ fontSize:20, fontWeight: '500',width:150,marginLeft:25}}>Time Period</Text>
             <Text style={{ fontSize:20, fontWeight: '500',width:50,marginLeft:10}}>Goal</Text>
@@ -81,7 +81,7 @@ const deleteTodo=(todos)=>{
             onPress={()=>navigation.navigate('List',{item})}>
 
 
-                <View style={{flexDirection:"row",paddingBottom:20,alignSelf:'center',justifyContent:'center',alignItems:'center',backgroundColor:'white',paddingBottom:20,paddingTop:20}} key={item.id}>
+                <View style={{flexDirection:"row",paddingBottom:20,alignSelf:'center',justifyContent:'center',alignItems:'center',backgroundColor:'#90EE90',paddingBottom:20,paddingTop:20}} key={item.id}>
                  {/* <Text style={{ fontSize:20, fontWeight: '400',width:50,marginLeft:25}}>{item.age}</Text>   */}
               
                  <Text style={{ fontSize:20, fontWeight: '400',width:100,marginLeft:10}}>{item.duration}</Text>  
@@ -110,9 +110,11 @@ const deleteTodo=(todos)=>{
 
             )} 
             />
-
+   <View style={{flexDirection:"row",paddingBottom:15,backgroundColor:'#90EE90',alignSelf:'center',justifyContent:'center',alignItems:'center',marginTop:470}}>
+            <Image style={{width: 375, height:175, }}source={require('../assets/UerGoalCreate.png')}  />
+            </View>
         </View>
-       
+    
          //</ScrollView>  
     );
    

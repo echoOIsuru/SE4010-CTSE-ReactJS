@@ -93,7 +93,7 @@ export default function Create() {
        />
       </View>
 
-                <View style={{paddingTop:10,width:200,textAlign:'center',alignSelf:'center',paddingBottom:20}}>
+                <View style={{paddingTop:10,width:200,textAlign:'center',alignSelf:'center',paddingBottom:80}}>
 
                 <Button
                 title="Submit"
