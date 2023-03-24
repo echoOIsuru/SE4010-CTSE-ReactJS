@@ -5,13 +5,17 @@ import { Button } from 'react-native-elements';
 import { firebase } from '../../config'
 import { removeMealPlan } from '../../services/meal_planner/api';
 import CardView from '../../components/meal_planner/CardView';
+import { Searchbar } from 'react-native-paper';
 
 export default function MealPlanScreen({ route, navigation }) {
 
     const [eventList, setEventList] = useState([])
+    const [filterdList, setFilterdList] = useState([])
     const todoRef = firebase.firestore().collection('meals')
     const user = route.params;
     const [render, setRender] = useState(false)
+    const [searchQuery, setSearchQuery] = useState('');
+
 
     useEffect(() => {
 
@@ -38,6 +42,7 @@ export default function MealPlanScreen({ route, navigation }) {
             })
             console.log(user, "========NAME")
             setEventList(mealPlan)
+            setFilterdList(mealPlan)
             setRender(true)
         })
         // setEventList(viewMealPlans())
@@ -73,12 +78,32 @@ export default function MealPlanScreen({ route, navigation }) {
         })
     }
 
+    const onChangeSearch = (query) => {
+
+        if (query != null) {
+            const results = eventList.filter(
+                o => Object.keys(o).some(k => o[k].toString().toLowerCase().includes(query.toLowerCase()))
+            );
+            console.log(results)
+            setFilterdList(results)
+        }
+
+    };
+
     return (
         <>
             {
                 render ?
                     <>
-                        <CardView data={eventList}
+                        <Searchbar
+                            placeholder='Search...'
+                            value={searchQuery}
+                            onChangeText={(event) => {
+                                setSearchQuery(event);
+                                onChangeSearch(event);
+                            }}
+                        />
+                        <CardView data={filterdList}
                             updateMeal={(data) => { updateMeal(data) }}
                             deleteMeal={(data) => { deleteMeal(data) }} />
                         <TouchableOpacity onPress={() => { navigation.navigate('Add Meal Plan', { ...user }) }}>
