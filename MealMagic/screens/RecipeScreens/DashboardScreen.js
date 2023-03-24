@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, ScrollView, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
 import { Card, Title, Text } from 'react-native-paper';
+import { dashboardStyles as styles } from '../../utils/styles';
 
 const DashboardScreen = ({ route, navigation }) => {
 
@@ -73,42 +74,5 @@ const DashboardScreen = ({ route, navigation }) => {
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        paddingHorizontal: 10,
-        paddingVertical: 20,
-    },
-    cardPair: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginVertical: 10,
-    },
-    card: {
-        height: 350,
-        borderRadius: 10,
-        overflow: 'hidden',
-        margin: 0,
-    },
-    cardImage: {
-        width: '100%',
-        height: 350,
-        resizeMode: 'cover',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    imageText: {
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        color: '#fff',
-        padding: 20,
-        textAlign: 'center',
-        fontSize: 18,
-        position: 'absolute',
-        bottom: 0,
-        width: '100%',
-    },
-});
 
 export default DashboardScreen;

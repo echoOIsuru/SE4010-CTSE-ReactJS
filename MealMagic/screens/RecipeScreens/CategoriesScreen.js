@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, ScrollView, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
+import { View, ScrollView, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
 import { Card, Text } from 'react-native-paper';
 import { recipeCategoryStyles as styles} from '../../utils/styles'; 
 

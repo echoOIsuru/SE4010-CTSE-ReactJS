@@ -61,3 +61,40 @@ export const recipeCategoryStyles = StyleSheet.create({
         textAlign: 'center',
     },
 });
+
+export const dashboardStyles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        paddingHorizontal: 10,
+        paddingVertical: 20,
+    },
+    cardPair: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginVertical: 10,
+    },
+    card: {
+        height: 350,
+        borderRadius: 10,
+        overflow: 'hidden',
+        margin: 0,
+    },
+    cardImage: {
+        width: '100%',
+        height: 350,
+        resizeMode: 'cover',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    imageText: {
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        color: '#fff',
+        padding: 20,
+        textAlign: 'center',
+        fontSize: 18,
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+    },
+});
