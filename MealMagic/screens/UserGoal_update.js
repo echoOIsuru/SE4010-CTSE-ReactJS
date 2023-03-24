@@ -1,10 +1,11 @@
 import React, {useState,useEffect} from 'react'
-import { View, Text, Image,Button,TextInput, StyleSheet,Alert } from 'react-native';
+import { View, Text, Image,Button,TextInput, StyleSheet,Alert,ImageBackground } from 'react-native';
 import {firebase} from '../config';
 import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { Pressable } from 'react-native';
 import { RadioButton } from 'react-native-paper';
+import NavigationBar from '../components/meal_planner/NavigationBar';
 const Update=({route})=> {
     const navigation = useNavigation();
     const todoRef=firebase.firestore().collection('goals')
@@ -40,7 +41,9 @@ const update=()=>{
 
       
     return (
-        <View style={{justifyContent: 'center',backgroundColor:'#90EE90'}}>
+      <>
+      <ImageBackground source={require('../assets/green.png')}style={{resizeMode: 'cover', justifyContent: 'center', paddingHorizontal: 10, opacity: 0.9 }}>
+        <View style={{justifyContent: 'center',backgroundColor:''}}>
 
             <View>
             <Text style={{ fontSize:30,fontWeight: '400',textAlign:'center',padding:45,color:'#000000'}}>Update Diet Goal</Text>
@@ -95,7 +98,7 @@ const update=()=>{
        />
       </View>
 
-                <View style={{paddingTop:10,width:200,textAlign:'center',alignSelf:'center',paddingBottom:80}}>
+                <View style={{paddingTop:10,width:200,textAlign:'center',alignSelf:'center',paddingBottom:20}}>
 
                 <Button
                 title="Update"
@@ -105,6 +108,9 @@ const update=()=>{
                 </View>
 
         </View>
+           <NavigationBar />
+           </ImageBackground>
+           </>
     );
 
   
