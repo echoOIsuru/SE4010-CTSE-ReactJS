@@ -83,18 +83,18 @@ const update=()=>{
       <View style={{flexDirection:"row",justifyContent: 'center',}}>
       <Text style={{flexDirection:"row", fontSize:20, fontWeight: '400',width:150}}>Increase weight</Text>
       <RadioButton
-        value="increase weight"
-        status={ checked === 'increase weight' ? 'checked' : 'unchecked' }
-        onPress={() => setChecked('increase weight')}
+        value="Increase weight"
+        status={ checked === 'Increase weight' ? 'checked' : 'unchecked' }
+        onPress={() => setChecked('Increase weight')}
        />
       </View>
           
       <View style={{flexDirection:"row",justifyContent: 'center',paddingTop:15,}}>
       <Text style={{flexDirection:"row", fontSize:20, fontWeight: '400',width:150}}>Decrease weight</Text>
       <RadioButton
-        value="decrease weight"
-        status={ checked === 'decrease weight' ? 'checked' : 'unchecked' }
-        onPress={() => setChecked('decrease weight')}
+        value="Decrease weight"
+        status={ checked === 'Decrease weight' ? 'checked' : 'unchecked' }
+        onPress={() => setChecked('Decrease weight')}
        />
       </View>
 
