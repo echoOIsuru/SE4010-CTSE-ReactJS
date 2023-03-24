@@ -8,6 +8,7 @@ import CreateGroceryScreen from '../screens/IT20218058/CreateGroceryScreen';
 import ViewGroceryScreen from '../screens/IT20218058/ViewGroceryScreen';
 import EditGroceryScreen from '../screens/IT20218058/EditGroceryScreen';
 import SuggessionsScreen from '../screens/IT20218058/SuggessionsScreen';
+import SignUpScreen from '../screens/SignUp';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,8 @@ export default function AppNavigator() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
+
+                <Stack.Screen name="Sign Up" component={SignUpScreen} />
                 <Stack.Screen name="Home" component={HomeScreen} />
                 <Stack.Screen name="Test" component={TestScreen} />
 
