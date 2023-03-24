@@ -140,5 +140,5 @@ function SignUp({ navigation }) {
     )
 
 }
-export default SignUp
 
+export default SignUp
