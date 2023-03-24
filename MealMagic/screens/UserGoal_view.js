@@ -19,7 +19,7 @@ export default function GoalList() {
 
 
     useEffect(() => {
-        return Ref.onSnapshot(
+        return Ref.orderBy('duration','desc').onSnapshot(
             querySnapshot => {
                 const items = []
                 querySnapshot.forEach((doc) => {
