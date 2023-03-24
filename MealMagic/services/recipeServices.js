@@ -1,10 +1,8 @@
-import { firebase } from '../config'
 import { getFirestore, collection, addDoc, doc, updateDoc, deleteDoc, onSnapshot } from "firebase/firestore"
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import uuid from 'uuid-random';
 
-const todoRef = firebase.firestore().collection('todo')
-
+//Export the addRecipes method which used to add new recipes to db
 export const addRecipes = async (routeDetails, recipeName, ingredients, instructions, imageUrl, category) => {
     const db = getFirestore();
     const id = uuid(); // Generate a unique ID
