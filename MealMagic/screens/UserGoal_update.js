@@ -23,7 +23,7 @@ const update=()=>{
           duration:duration,
           checked:checked,
       }).then(()=>{
-         navigation.navigate('GoaL List')
+         navigation.navigate('Goal List')
          Alert.alert("Goal Updated ")
          
       }).catch((error)=>{
