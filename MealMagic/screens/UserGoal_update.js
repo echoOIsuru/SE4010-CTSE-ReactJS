@@ -81,7 +81,7 @@ const update=()=>{
            </View>
 
       <View style={{flexDirection:"row",justifyContent: 'center',}}>
-      <Text style={{flexDirection:"row", fontSize:20, fontWeight: '400',width:150}}>increase weight</Text>
+      <Text style={{flexDirection:"row", fontSize:20, fontWeight: '400',width:150}}>Increase weight</Text>
       <RadioButton
         value="increase weight"
         status={ checked === 'increase weight' ? 'checked' : 'unchecked' }
@@ -90,7 +90,7 @@ const update=()=>{
       </View>
           
       <View style={{flexDirection:"row",justifyContent: 'center',paddingTop:15,}}>
-      <Text style={{flexDirection:"row", fontSize:20, fontWeight: '400',width:150}}>decrease weight</Text>
+      <Text style={{flexDirection:"row", fontSize:20, fontWeight: '400',width:150}}>Decrease weight</Text>
       <RadioButton
         value="decrease weight"
         status={ checked === 'decrease weight' ? 'checked' : 'unchecked' }
