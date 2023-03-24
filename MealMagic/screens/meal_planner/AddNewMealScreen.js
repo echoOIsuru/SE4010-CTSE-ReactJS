@@ -4,6 +4,7 @@ import { MultipleSelectList, SelectList } from 'react-native-dropdown-select-lis
 import { addMealPlan, updateMealPlan } from '../../services/meal_planner/api';
 import * as ImagePicker from 'expo-image-picker';
 import { firebase } from '../../config'
+import NavigationBar from '../../components/meal_planner/NavigationBar';
 
 
 export default AddNewMealScreen = ({ route, navigation }) => {
@@ -362,7 +363,7 @@ export default AddNewMealScreen = ({ route, navigation }) => {
                 </View>
             </ScrollView>
 
-
+            <NavigationBar />
         </View>
     );
 };

@@ -6,6 +6,7 @@ import { firebase } from '../../config'
 import { removeMealPlan } from '../../services/meal_planner/api';
 import CardView from '../../components/meal_planner/CardView';
 import { Searchbar } from 'react-native-paper';
+import NavigationBar from '../../components/meal_planner/NavigationBar';
 
 export default function MealPlanScreen({ route, navigation }) {
 
@@ -109,6 +110,7 @@ export default function MealPlanScreen({ route, navigation }) {
                         <TouchableOpacity onPress={() => { navigation.navigate('Add Meal Plan', { ...user }) }}>
                             <MaterialIcons style={styles.add} name="add" color='green' />
                         </TouchableOpacity>
+                        <NavigationBar />
                     </>
 
                     :
@@ -179,7 +181,7 @@ const styles = StyleSheet.create({
         fontSize: 35
     },
     add: {
-        fontSize: 60,
+        fontSize: 30,
         alignSelf: 'center'
     },
     scontainer: {

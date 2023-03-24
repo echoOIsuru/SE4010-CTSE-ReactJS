@@ -30,6 +30,7 @@ export default function AppNavigator() {
                 <Stack.Screen name="Recipes List" component={RecipeScreen} />
                 <Stack.Screen name="Dashboard" component={DashboardScreen} />
             </Stack.Navigator>
+
         </NavigationContainer>
     )
 }

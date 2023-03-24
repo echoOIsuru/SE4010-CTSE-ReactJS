@@ -97,7 +97,7 @@ function SignUp({ navigation }) {
 
     return (
         <View style={styles.container}>
-            <Image style={styles.image} source={require("../assets/splashScreen.png")} />
+            <Image style={styles.image} source={require("../../assets/splashScreen.png")} />
             <StatusBar style="auto" />
             <View style={styles.inputView}>
                 <TextInput
@@ -144,6 +144,7 @@ export default SignUp
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        height: 20,
         backgroundColor: "#fff",
         alignItems: "center",
         justifyContent: "center",
