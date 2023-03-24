@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native';
+import { Link, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TestScreen from '../screens/TestScreen';
 import SignUpScreen from '../screens/meal_planner/SignUp';
@@ -8,6 +8,10 @@ import AddNewMealScreen from '../screens/meal_planner/AddNewMealScreen';
 import CategoriesScreen from '../screens/RecipeScreens/CategoriesScreen';
 import RecipeScreen from '../screens/RecipeScreens/RecipeScreen';
 import DashboardScreen from './../screens/RecipeScreens/DashboardScreen';
+import Create from '../screens/UserGoal_Create';
+import GoalList from '../screens/UserGoal_view';
+import Update from '../screens/UserGoal_update';
+import List from '../screens/UserGoalselectedlist';
 import { LogBox } from 'react-native';
 
 LogBox.ignoreLogs(['Warning: ...']);
@@ -29,6 +33,12 @@ export default function AppNavigator() {
                 <Stack.Screen name="Recipe Categories" component={CategoriesScreen} />
                 <Stack.Screen name="Recipes List" component={RecipeScreen} />
                 <Stack.Screen name="Dashboard" component={DashboardScreen} />
+
+      
+                <Stack.Screen name="Creat Goal" component={Create} />
+                <Stack.Screen name="Goal List" component={GoalList} />
+                <Stack.Screen name="Update" component={Update} />
+                <Stack.Screen name="List" component={List} />
             </Stack.Navigator>
 
         </NavigationContainer>

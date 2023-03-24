@@ -33,7 +33,7 @@ const DashboardScreen = ({ route, navigation }) => {
                 id: 4,
                 name: 'Goal Planner',
                 image: require('../../assets/Goal.jpg'),
-                navigateTo: '#'
+                navigateTo: 'Creat Goal'
             },
         ];
     };
