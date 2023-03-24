@@ -1,10 +1,11 @@
 import React, {useState,useEffect} from 'react'
-import { View, Text, Image,Button,TextInput, StyleSheet,Alert } from 'react-native';
+import { View, Text, Image,Button,TextInput, StyleSheet,Alert,ImageBackground } from 'react-native';
 import {firebase} from '../config';
 import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { Pressable } from 'react-native';
 import { RadioButton } from 'react-native-paper';
+import NavigationBar from '../components/meal_planner/NavigationBar';
 const Update=({route})=> {
     const navigation = useNavigation();
     const todoRef=firebase.firestore().collection('goals')
@@ -40,7 +41,9 @@ const update=()=>{
 
       
     return (
-        <View style={{justifyContent: 'center',backgroundColor:'#90EE90'}}>
+      <>
+      <ImageBackground source={require('../assets/green.png')}style={{resizeMode: 'cover', justifyContent: 'center', paddingHorizontal: 10, opacity: 0.9 }}>
+        <View style={{justifyContent: 'center',backgroundColor:''}}>
 
             <View>
             <Text style={{ fontSize:30,fontWeight: '400',textAlign:'center',padding:45,color:'#000000'}}>Update Diet Goal</Text>
@@ -78,24 +81,24 @@ const update=()=>{
            </View>
 
       <View style={{flexDirection:"row",justifyContent: 'center',}}>
-      <Text style={{flexDirection:"row", fontSize:20, fontWeight: '400',width:150}}>increase weight</Text>
+      <Text style={{flexDirection:"row", fontSize:20, fontWeight: '400',width:150}}>Increase weight</Text>
       <RadioButton
-        value="increase weight"
-        status={ checked === 'increase weight' ? 'checked' : 'unchecked' }
-        onPress={() => setChecked('increase weight')}
+        value="Increase weight"
+        status={ checked === 'Increase weight' ? 'checked' : 'unchecked' }
+        onPress={() => setChecked('Increase weight')}
        />
       </View>
           
       <View style={{flexDirection:"row",justifyContent: 'center',paddingTop:15,}}>
-      <Text style={{flexDirection:"row", fontSize:20, fontWeight: '400',width:150}}>decrease weight</Text>
+      <Text style={{flexDirection:"row", fontSize:20, fontWeight: '400',width:150}}>Decrease weight</Text>
       <RadioButton
-        value="decrease weight"
-        status={ checked === 'decrease weight' ? 'checked' : 'unchecked' }
-        onPress={() => setChecked('decrease weight')}
+        value="Decrease weight"
+        status={ checked === 'Decrease weight' ? 'checked' : 'unchecked' }
+        onPress={() => setChecked('Decrease weight')}
        />
       </View>
 
-                <View style={{paddingTop:10,width:200,textAlign:'center',alignSelf:'center',paddingBottom:80}}>
+                <View style={{paddingTop:10,width:200,textAlign:'center',alignSelf:'center',paddingBottom:20}}>
 
                 <Button
                 title="Update"
@@ -105,6 +108,9 @@ const update=()=>{
                 </View>
 
         </View>
+           <NavigationBar />
+           </ImageBackground>
+           </>
     );
 
   
