@@ -8,7 +8,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { Picker } from '@react-native-picker/picker';
 import { addRecipes, editRecipes, getRecipes, deleteRecipes } from '../../services/recipeServices';
 
-const RecipeScreen = ({ route, navigation }) => {
+const RecipeScreen = ({ route }) => {
   const [recipes, setRecipes] = useState([]);
   const [retrievedRrecipes, setRetrievedecipes] = useState([]);
   const [recipeName, setRecipeName] = useState('');
