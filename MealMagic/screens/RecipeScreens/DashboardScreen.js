@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, ScrollView, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
-import { Card, Title, Text } from 'react-native-paper';
+import React, { useState} from 'react';
+import { View, ScrollView, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
+import { Card, Text } from 'react-native-paper';
 import { dashboardStyles as styles } from '../../utils/styles';
 
 const DashboardScreen = ({ route, navigation }) => {
 
     const [selectedComponent, setSelectedComponent] = useState(null);
-    const user = route.params;
+    const user = route.params; //logged user id
 
+    //list of components and image sources
     const getCategories = () => {
         return [
             {
@@ -37,14 +38,17 @@ const DashboardScreen = ({ route, navigation }) => {
         ];
     };
 
+    //screen width
     const screenWidth = Dimensions.get('window').width;
 
     const categories = getCategories();
+
+    //returns pairs of elements in the category array
     const pairs = categories.reduce((acc, curr, index) => {
         if (index % 2 === 0) {
             acc.push([curr]);
         } else {
-            acc[acc.length - 1].push(curr);
+            acc[acc.length - 1].push(curr); //retrieves the last array in pairs and adds the current element to it
         }
         return acc;
     }, []);
