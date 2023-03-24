@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, ScrollView, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
-import { Card, Title, Text } from 'react-native-paper';
+import { Card, Text } from 'react-native-paper';
+import { recipeCategoryStyles as styles} from '../../utils/styles'; 
 
 const CategoriesScreen = ({ route, navigation }) => {
 
     const [selectedCategory, setSelectedCategory] = useState(null);
     const user = route.params;
 
-    useEffect(() => {
-        console.log(user.uid, "UserID")
-    }, [])
-
+    //list of the categories
     const getCategories = () => {
         return [
             {
@@ -46,6 +44,7 @@ const CategoriesScreen = ({ route, navigation }) => {
         ];
     };
 
+    //get the screen width
     const screenWidth = Dimensions.get('window').width;
 
     return (
@@ -69,33 +68,5 @@ const CategoriesScreen = ({ route, navigation }) => {
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        paddingHorizontal: 10,
-        paddingVertical: 20,
-    },
-    card: {
-        height: 350,
-        borderRadius: 10,
-        overflow: 'hidden',
-        marginHorizontal: 5,
-        margin: 0,
-      },
-    cardImage: {
-        width: '100%',
-        height: 350,
-        resizeMode: 'cover',
-        justifyContent: 'flex-end',
-    },
-    imageText: {
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        color: '#fff',
-        padding: 10,
-        textAlign: 'center',
-    },
-});
 
 export default CategoriesScreen;

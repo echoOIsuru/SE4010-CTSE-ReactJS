@@ -7,8 +7,9 @@ import { StatusBar } from 'expo-status-bar';
 import * as ImagePicker from 'expo-image-picker';
 import { Picker } from '@react-native-picker/picker';
 import { addRecipes, editRecipes, getRecipes, deleteRecipes } from '../../services/recipeServices';
+import { recipeScreenStyles as styles } from '../../utils/styles';
 
-const RecipeScreen = ({ route, navigation }) => {
+const RecipeScreen = ({ route }) => {
   const [recipes, setRecipes] = useState([]);
   const [retrievedRrecipes, setRetrievedecipes] = useState([]);
   const [recipeName, setRecipeName] = useState('');
@@ -39,10 +40,12 @@ const RecipeScreen = ({ route, navigation }) => {
     { label: 'American', value: 'American' },
   ];
 
+  //handle value change of categories
   const handleValueChange = (value) => {
     setCategory(value);
   };
 
+  //handle add recipes
   const addRecipe = async () => {
 
     await addRecipes(routeDetails, recipeName, ingredients, instructions, imageUrl, category);
@@ -58,6 +61,7 @@ const RecipeScreen = ({ route, navigation }) => {
     setSelectedImage('')
   };
 
+  //manage recipe editing
   const editRecipe = async () => {
 
     await editRecipes(routeDetails, imageUrl, recipeName, ingredients, instructions, category, id, isUpdate)
@@ -73,11 +77,12 @@ const RecipeScreen = ({ route, navigation }) => {
     setSelectedImage('')
   };
 
+  //manage deletion of recipes
   const deleteRecipe = async (id) => {
 
     Alert.alert(
       'Confirm Deletion',
-      'Are you sure you want to delete this recipe?',
+      'Are you sure you want to delete the selected recipe?',
       [
         {
           text: 'Cancel',
@@ -94,6 +99,7 @@ const RecipeScreen = ({ route, navigation }) => {
     );
   };
 
+  //handle upload of an image
   const handleImageUpload = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (status !== 'granted') {
@@ -132,6 +138,7 @@ const RecipeScreen = ({ route, navigation }) => {
 
   };
 
+  //handle cancel
   const handleCancel = () => {
     setModalVisible(false);
     setRecipeName('');
@@ -159,13 +166,14 @@ const RecipeScreen = ({ route, navigation }) => {
               <Card key={item.id}>
                 <Card.Cover source={{ uri: item.imageUrl }} />
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                  <Card.Title title={item.name} />
+                  <View style={{ flex: 1 }}>
+                    <Card.Title title={item.name} />
+                  </View>
                   <View style={{ flexDirection: 'row', marginRight: 10, marginTop: 10 }}>
                     <TouchableOpacity onPress={() => {
                       setRecipeName(item.name);
                       setIngredients(item.ingredients);
                       setInstructions(item.instructions);
-                      // editRecipe(item.id, recipeName, ingredients, instructions, category);
                       setID(item.id);
                       setImageSelected(false);
                       setRecipeName(item.name);
@@ -307,44 +315,6 @@ const RecipeScreen = ({ route, navigation }) => {
     </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  itemContainer: {
-    backgroundColor: "#fff",
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    borderRadius: 10,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  itemTitle: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginTop: 10,
-  },
-  itemDescription: {
-    fontSize: 16,
-    marginTop: 5,
-  },
-  itemImage: {
-    backgroundColor: 'white',
-    width: "70%",
-    height: "70%",
-    borderRadius: 10,
-  },
-  addButton: {
-    position: "absolute",
-    bottom: 20,
-    right: 20,
-  }
-});
 
 
 export default RecipeScreen;
