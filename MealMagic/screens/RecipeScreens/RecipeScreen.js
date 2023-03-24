@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Alert, StyleSheet, Modal, View, Text, TextInput, TouchableOpacity, FlatList, ImageBackground, Image, ScrollView } from 'react-native';
+import { Alert, Modal, View, Text, TextInput, TouchableOpacity, FlatList, ImageBackground, Image, ScrollView } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import { Searchbar, Card, Paragraph } from 'react-native-paper';
@@ -98,6 +98,8 @@ const RecipeScreen = ({ route }) => {
       { cancelable: false }
     );
   };
+
+  console. disableYellowBox = true
 
   //handle upload of an image
   const handleImageUpload = async () => {

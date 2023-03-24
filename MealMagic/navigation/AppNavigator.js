@@ -7,6 +7,10 @@ import SignUpScreen from '../screens/SignUp';
 import CategoriesScreen from '../screens/RecipeScreens/CategoriesScreen';
 import RecipeScreen from '../screens/RecipeScreens/RecipeScreen';
 import DashboardScreen from './../screens/RecipeScreens/DashboardScreen';
+import { LogBox } from 'react-native';
+
+LogBox.ignoreLogs(['Warning: ...']); 
+LogBox.ignoreAllLogs();
 
 const Stack = createNativeStackNavigator();
 
