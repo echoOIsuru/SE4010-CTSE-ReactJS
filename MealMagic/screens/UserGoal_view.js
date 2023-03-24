@@ -64,7 +64,7 @@ export default function GoalList() {
                     <Image style={{ width: 425, height: 175, }} source={require('../assets/UerGoalCreate.png')} />
                 </View>
 
-                <View style={{ flexDirection: "row", paddingBottom: 10, justifyContent: 'center', alignItems: 'center', backgroundColor: '', }}>
+                <View style={{ flexDirection: "row", paddingBottom: 10, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white', }}>
                     {/* <Text style={{ fontSize:20, fontWeight: '500',width:50,marginLeft:35}}>Meal</Text>    */}
                     <Text style={{ fontSize: 20, fontWeight: '500', width: 150, marginLeft: 25 }}>Time Period</Text>
                     <Text style={{ fontSize: 20, fontWeight: '500', width: 50, marginLeft: 10 }}>Goal</Text>
