@@ -18,7 +18,7 @@ export default function AppNavigator() {
                 <Stack.Screen name="Sign Up" component={SignUpScreen} />
                 <Stack.Screen name="Home" component={HomeScreen} />
                 <Stack.Screen name="Creat Goal" component={Create} />
-                <Stack.Screen name="GoaL List" component={GoalList} />
+                <Stack.Screen name="Goal List" component={GoalList} />
                 <Stack.Screen name="Update" component={Update} />
                 <Stack.Screen name="List" component={List} />
                 <Stack.Screen name="Test" component={TestScreen} />
