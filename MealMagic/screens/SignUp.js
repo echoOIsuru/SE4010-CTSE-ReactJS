@@ -16,7 +16,7 @@ function SignUp({ navigation }) {
                 .then((userCredential) => {
                     const user = userCredential.user;
 
-                    navigation.navigate('Home', {
+                    navigation.navigate('Dashboard', {
                         uid: user.uid
                     })
                 })
@@ -50,7 +50,7 @@ function SignUp({ navigation }) {
                         const user = res.user;
                         console.log(res.user.uid);
 
-                        navigation.navigate('Home', {
+                        navigation.navigate('Dashboard', {
                             uid: user.uid
                         })
                     })
