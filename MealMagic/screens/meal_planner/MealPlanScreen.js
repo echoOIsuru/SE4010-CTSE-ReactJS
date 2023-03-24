@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, View, Alert, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import { Button } from 'react-native-elements';
 import { firebase } from '../../config'
 import { removeMealPlan } from '../../services/meal_planner/api';
 import CardView from '../../components/meal_planner/CardView';
 import { Searchbar } from 'react-native-paper';
 import NavigationBar from '../../components/meal_planner/NavigationBar';
+import { mealPlanStyles as styles } from '../../utils/styles';
 
 export default function MealPlanScreen({ route, navigation }) {
 
@@ -107,8 +109,14 @@ export default function MealPlanScreen({ route, navigation }) {
                         <CardView data={filterdList}
                             updateMeal={(data) => { updateMeal(data) }}
                             deleteMeal={(data) => { deleteMeal(data) }} />
-                        <TouchableOpacity onPress={() => { navigation.navigate('Add Meal Plan', { ...user }) }}>
-                            <MaterialIcons style={styles.add} name="add" color='green' />
+                        <TouchableOpacity style={styles.add} onPress={() => { navigation.navigate('Add Meal Plan', { ...user }) }}>
+                            {/* <MaterialIcons name="add" color='green' /> */}
+                            <Ionicons
+                                name="add-circle"
+                                size={50}
+                                color="green"
+                                style={{ textShadowColor: '#fff', textShadowOffset: { width: 0, height: 1 }, textShadowRadius: 1 }}
+                            />
                         </TouchableOpacity>
                         <NavigationBar />
                     </>
@@ -122,75 +130,3 @@ export default function MealPlanScreen({ route, navigation }) {
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#DCDCDC',
-    },
-    eventList: {
-        marginTop: 20,
-        marginBottom: 20
-    },
-    eventBox: {
-        padding: 10,
-        marginTop: 5,
-        marginBottom: 5,
-        flexDirection: 'row',
-        backgroundColor: '#F3FFE0'
-    },
-    eventDate: {
-        flexDirection: 'column',
-    },
-    eventDay: {
-        fontSize: 50,
-        color: '#0099FF',
-        fontWeight: '600',
-    },
-    eventMonth: {
-        fontSize: 16,
-        color: '#0099FF',
-        fontWeight: '600',
-    },
-    eventContent: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        marginLeft: 10,
-        backgroundColor: '#FFFFFF',
-        padding: 10,
-        borderRadius: 10,
-    },
-    description: {
-        fontSize: 15,
-        color: '#646464',
-        width: 250,
-    },
-    eventTime: {
-        alignSelf: 'center',
-        fontSize: 25,
-        color: '#151515',
-        marginBottom: 15
-    },
-    userName: {
-        fontSize: 16,
-        color: '#151515',
-        alignSelf: 'center'
-    },
-    delete: {
-        marginLeft: 2,
-        fontSize: 35
-    },
-    add: {
-        fontSize: 30,
-        alignSelf: 'center'
-    },
-    scontainer: {
-        flex: 1,
-        justifyContent: 'center',
-    },
-    shorizontal: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        padding: 10,
-    },
-})

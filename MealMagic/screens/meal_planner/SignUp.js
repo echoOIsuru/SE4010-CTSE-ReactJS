@@ -4,6 +4,7 @@ import { StatusBar } from "expo-status-bar";
 import { firebase } from '../../config'
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { AsyncStorage } from 'react-native';
+import { singInStyles as styles } from '../../utils/styles';
 
 function SignUp({ navigation }) {
     const [email, setEmail] = useState('');
@@ -141,49 +142,3 @@ function SignUp({ navigation }) {
 }
 export default SignUp
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        height: 20,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    image: {
-        marginBottom: 40,
-        height: 300,
-        width: 300
-    },
-    inputView: {
-        backgroundColor: "#ebf2c9",
-        borderRadius: 30,
-        width: "90%",
-        height: 45,
-        marginBottom: 20,
-        alignItems: "center",
-    },
-    TextInput: {
-        height: 50,
-        flex: 1,
-        padding: 10,
-        alignContent: 'center'
-    },
-    loginBtn: {
-        width: "40%",
-        borderRadius: 25,
-        height: 50,
-        alignItems: "center",
-        justifyContent: "center",
-        marginTop: 20,
-        backgroundColor: "#5BFF92",
-    },
-    signBtn: {
-        width: "30%",
-        borderRadius: 25,
-        height: 50,
-        alignItems: "center",
-        justifyContent: "center",
-        marginTop: 20,
-        backgroundColor: "#5BFF92",
-    },
-});
