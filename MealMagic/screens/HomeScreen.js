@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { Button, View, Text } from 'react-native'
-import { addMealPlan } from '../services/api'
 
 export default function HomeScreen({ route, navigation }) {
 
@@ -14,9 +13,7 @@ export default function HomeScreen({ route, navigation }) {
 
 
     const go = () => {
-
-        addMealPlan()
-        // navigation.navigate('Test')
+        navigation.navigate('Meal Plan', { ...user })
     }
 
     return (

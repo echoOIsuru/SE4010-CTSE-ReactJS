@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Alert, Image, ScrollView, Keyboard, View, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
+import { Alert, Image, ScrollView, Keyboard, View, StyleSheet, Text, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { StatusBar } from "expo-status-bar";
 import { firebase } from '../config'
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -9,37 +9,46 @@ function SignUp({ navigation }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const [loginFlag, setLoginFlag] = useState(false)
+    const [signFlag, setSignFlag] = useState(false)
+
     const signIn = () => {
+        setSignFlag(true)
         if (email !== '' && password !== '') {
             console.log("sign in clicked!")
             firebase.auth().createUserWithEmailAndPassword(email, password)
                 .then((userCredential) => {
                     const user = userCredential.user;
-
+                    setSignFlag(false)
                     navigation.navigate('Home', {
                         uid: user.uid
                     })
+
                 })
                 .catch((error) => {
-                    Alert.alert(
-                        'Alert',
-                        'Please try again with correct data',
-                    )
-
                     const errorCode = error.code;
                     const errorMessage = error.message;
+                    Alert.alert(
+                        'Alert',
+                        `${errorMessage}`,
+                    )
+                    setSignFlag(false)
+
                     console.log(error)
+
                 });
         } else {
             Alert.alert(
                 'Alert',
                 'Please try again with correct data',
             )
+            setSignFlag(false)
         }
 
     }
 
     const login = () => {
+        setLoginFlag(true)
         if (email !== '' && password !== '') {
             console.log("login clicked!")
             try {
@@ -53,6 +62,7 @@ function SignUp({ navigation }) {
                         navigation.navigate('Home', {
                             uid: user.uid
                         })
+                        setLoginFlag(false)
                     })
                     .catch((error) => {
                         const errorCode = error.code;
@@ -62,30 +72,32 @@ function SignUp({ navigation }) {
 
                         Alert.alert(
                             'Alert',
-                            'Please try again with correct data',
+                            `${errorMessage}`,
                         )
+                        setLoginFlag(false)
                     });
             } catch (error) {
                 Alert.alert(
                     'Alert',
                     'Please try again with correct data',
                 )
-                console.log(error);
+                console.log(error.code);
+                setLoginFlag(false)
             }
         } else {
             Alert.alert(
                 'Alert',
                 'Please try again with correct data',
             )
+            setLoginFlag(false)
         }
-
 
 
     }
 
     return (
         <View style={styles.container}>
-            <Image style={styles.image} source={require("../assets/icon.png")} />
+            <Image style={styles.image} source={require("../assets/splashScreen.png")} />
             <StatusBar style="auto" />
             <View style={styles.inputView}>
                 <TextInput
@@ -105,10 +117,23 @@ function SignUp({ navigation }) {
                 />
             </View>
             <TouchableOpacity style={styles.loginBtn} onPress={() => { login() }}>
-                <Text style={styles.loginText}>LOGIN</Text>
+                {
+                    loginFlag ?
+                        <ActivityIndicator size="large" color="red" />
+                        : <Text style={styles.loginText}>
+                            LOGIN
+                        </Text>
+
+                }
             </TouchableOpacity>
-            <TouchableOpacity style={styles.loginBtn} onPress={() => { signIn() }}>
-                <Text style={styles.loginText}>SIGN IN</Text>
+            <TouchableOpacity style={styles.signBtn} onPress={() => { signIn() }}>
+                {
+                    signFlag ? <ActivityIndicator size="large" color="red" />
+                        :
+                        <Text style={styles.loginText}>SIGN IN</Text>
+                }
+
+
             </TouchableOpacity>
         </View>
     )
@@ -125,7 +150,8 @@ const styles = StyleSheet.create({
     },
     image: {
         marginBottom: 40,
-        height: 10
+        height: 300,
+        width: 300
     },
     inputView: {
         backgroundColor: "#ebf2c9",
@@ -142,12 +168,21 @@ const styles = StyleSheet.create({
         alignContent: 'center'
     },
     loginBtn: {
-        width: "60%",
+        width: "40%",
         borderRadius: 25,
         height: 50,
         alignItems: "center",
         justifyContent: "center",
         marginTop: 20,
-        backgroundColor: "#fa930c",
+        backgroundColor: "#5BFF92",
+    },
+    signBtn: {
+        width: "30%",
+        borderRadius: 25,
+        height: 50,
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 20,
+        backgroundColor: "#5BFF92",
     },
 });
