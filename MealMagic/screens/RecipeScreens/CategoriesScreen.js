@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, ScrollView, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
 import { Card, Text } from 'react-native-paper';
 import { recipeCategoryStyles as styles} from '../../utils/styles'; 
+import NavigationBar from '../../components/meal_planner/NavigationBar';
 
 const CategoriesScreen = ({ route, navigation }) => {
 
@@ -65,6 +66,7 @@ const CategoriesScreen = ({ route, navigation }) => {
                     </TouchableOpacity>
                 ))}
             </ScrollView>
+            <NavigationBar />
         </View>
     );
 };

@@ -8,6 +8,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { Picker } from '@react-native-picker/picker';
 import { addRecipes, editRecipes, getRecipes, deleteRecipes } from '../../services/recipeServices';
 import { recipeScreenStyles as styles } from '../../utils/styles';
+import NavigationBar from '../../components/meal_planner/NavigationBar';
 
 const RecipeScreen = ({ route }) => {
   const [recipes, setRecipes] = useState([]);
@@ -314,6 +315,7 @@ const RecipeScreen = ({ route }) => {
           style={{ textShadowColor: '#fff', textShadowOffset: { width: 0, height: 1 }, textShadowRadius: 1 }}
         />
       </TouchableOpacity>
+      <NavigationBar />
     </ImageBackground>
   );
 };
