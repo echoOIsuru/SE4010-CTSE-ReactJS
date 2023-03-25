@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, Image, Button, TextInput, StyleSheet, Alert } from 'react-native';
+import { View, Text, Image, Button, TextInput, StyleSheet, Alert,ImageBackground } from 'react-native';
 import { firebase } from '../config';
 import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { Pressable } from 'react-native';
 import { RadioButton } from 'react-native-paper';
+import NavigationBar from '../components/meal_planner/NavigationBar';
 export default function Create() {
   const navigation = useNavigation();
   const [age, setAge] = useState('');
@@ -39,13 +40,16 @@ export default function Create() {
 
 
   return (
-    <View style={{ justifyContent: 'center', backgroundColor: '#90EE90' }}>
+    
+    <>
+    <ImageBackground source={require('../assets/green.png')}style={{resizeMode: 'cover', justifyContent: 'center', paddingHorizontal: 10, opacity: 0.9 }}>
+    <View style={{ justifyContent: 'center', }}>
 
       <View>
-        <Text style={{ fontSize: 30, fontWeight: '400', textAlign: 'center', padding: 45, color: '#000000' }}>Create Diet Goal</Text>
+        <Text style={{ fontSize: 30, fontWeight: '400', textAlign: 'center', padding: 45, color: '#000000', }}>Create Diet Goal</Text>
       </View>
 
-      <View style={{ flexDirection: "row", paddingBottom: 15, backgroundColor: '#90EE90', alignSelf: 'center', justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ flexDirection: "row", paddingBottom: 15,alignSelf: 'center', justifyContent: 'center', alignItems: 'center' }}>
         <Image style={{ width: 375, height: 175, }} source={require('../assets/UerGoalCreate.png')} />
       </View>
 
@@ -94,7 +98,7 @@ export default function Create() {
         />
       </View>
 
-      <View style={{ paddingTop: 10, width: 200, textAlign: 'center', alignSelf: 'center', paddingBottom: 80 }}>
+      <View style={{ paddingTop: 10, width: 200, textAlign: 'center', alignSelf: 'center', paddingBottom:20 }}>
 
         <Button
           title="Submit"
@@ -103,6 +107,9 @@ export default function Create() {
       </View>
 
     </View>
+    </ImageBackground>
+    <NavigationBar/>
+    </>
   );
 
 

@@ -6,15 +6,9 @@ import { View } from 'react-native';
 function NavigationBar() {
     return (
         <View style={{ paddingTop: 10, paddingBottom: 10, paddingLeft: 30 }}>
-            <HStack m={4} spacing={83}>
+            <HStack m={3} spacing={142}>
                 <Icon
                     name='home'
-                    type='font-awesome'
-                    color='#166697'
-                    style={{ alignSelf: 'flex-start' }}
-                    onPress={() => console.log('CLICKED')} />
-                <Icon
-                    name='bell'
                     type='font-awesome'
                     color='#166697'
                     style={{ alignSelf: 'flex-start' }}
@@ -26,7 +20,7 @@ function NavigationBar() {
                     style={{ alignSelf: 'flex-start' }}
                     onPress={() => console.log('CLICKED')} />
                 <Icon
-                    name='heart'
+                    name='bell'
                     type='font-awesome'
                     color='#166697'
                     style={{ alignSelf: 'flex-start' }}

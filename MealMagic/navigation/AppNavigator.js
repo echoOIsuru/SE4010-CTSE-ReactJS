@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import TestScreen from '../screens/TestScreen';
 import SignUpScreen from '../screens/meal_planner/SignUp';
 import MealPlanScreen from '../screens/meal_planner/MealPlanScreen';
 import AddNewMealScreen from '../screens/meal_planner/AddNewMealScreen';
@@ -24,7 +23,6 @@ export default function AppNavigator() {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name="Sign Up" component={SignUpScreen} />
-                <Stack.Screen name="Test" component={TestScreen} />
 
                 <Stack.Screen name="Meal Plan" component={MealPlanScreen} />
                 <Stack.Screen name="Add Meal Plan" component={AddNewMealScreen} />
@@ -34,7 +32,7 @@ export default function AppNavigator() {
                 <Stack.Screen name="Recipes List" component={RecipeScreen} />
                 <Stack.Screen name="Dashboard" component={DashboardScreen} />
 
-      
+
                 <Stack.Screen name="Creat Goal" component={Create} />
                 <Stack.Screen name="Goal List" component={GoalList} />
                 <Stack.Screen name="Update" component={Update} />
